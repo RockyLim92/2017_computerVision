@@ -1,3 +1,10 @@
+"""
+2017-1, computer vision class in Ajou university]
+
+Heerak Lim, rocky92.lim@gmail.com
+
+"""
+
 import numpy
 import cv2
 from matplotlib import pyplot as plt
@@ -10,7 +17,7 @@ template = cv2.imread('01.findingwally/wally_department.jpg',0)
 w, h = template.shape[::-1]
 
 
-# All the 6 methods for comparison in a list
+# 6 different template matching method
 methods = ['cv2.TM_CCOEFF', 'cv2.TM_CCOEFF_NORMED', 'cv2.TM_CCORR',
             'cv2.TM_CCORR_NORMED', 'cv2.TM_SQDIFF', 'cv2.TM_SQDIFF_NORMED']
 
@@ -20,7 +27,7 @@ for meth in methods:
     img = img2.copy()
     method = eval(meth)
 
-    # Apply template Matching
+    # template Matching !!
     res = cv2.matchTemplate(img,template,method)
     min_val, max_val, min_loc, max_loc = cv2.minMaxLoc(res)
 
